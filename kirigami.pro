@@ -7,7 +7,7 @@ SOURCES     += $$PWD/src/kirigamiplugin.cpp
 
 API_VER=1.0
 
-TARGET = $$qtLibraryTarget(org/kde/kirigamiplugin)
+TARGET = $$qtLibraryTarget(org/kde/kirigami/kirigamiplugin)
 
 importPath = $$[QT_INSTALL_QML]/org/kde/kirigami
 target.path = $${importPath}
