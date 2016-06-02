@@ -31,13 +31,13 @@ QString KirigamiPlugin::componentPath(const QString &fileName) const
     QString candidate;
 
     foreach (const QString &style, m_stylesFallbackChain) {
-        candidate = baseUrl().toString() + QStringLiteral("/styles/") + style + QLatin1Char('/') + fileName;
-        if (QFile::exists(QUrl(candidate).path())) {
-            return candidate;
+        candidate = QLatin1Char(':') + QStringLiteral("/styles/") + style + QLatin1Char('/') + fileName;
+        if (QFile::exists(candidate)) {
+            return QStringLiteral("qrc") + candidate;
         }
     }
 
-    return baseUrl().toString() + QLatin1Char('/') + fileName;
+    return QStringLiteral("qrc:") + QLatin1Char('/') + fileName;
 }
 
 void KirigamiPlugin::registerTypes(const char *uri)
