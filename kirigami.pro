@@ -22,8 +22,8 @@ controls.files += $$PWD/src/controls/*
 
 INSTALLS    += target controls
 
-
-
-
-
-
+copy_qmldir.target = $$OUT_PWD/org/kde/kirigami/qmldir
+copy_qmldir.depends = $$PWD/src/controls/qmldir
+copy_qmldir.commands = $(COPY_FILE) \"$$replace(copy_qmldir.depends, /, $$QMAKE_DIR_SEP)\" \"$$replace(copy_qmldir.target, /, $$QMAKE_DIR_SEP)\"
+QMAKE_EXTRA_TARGETS += copy_qmldir
+PRE_TARGETDEPS += $$copy_qmldir.target
