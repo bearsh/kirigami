@@ -26,18 +26,18 @@
 #include <QQmlContext>
 #include <QQuickItem>
 
-QString KirigamiPlugin::componentPath(const QString &fileName) const
+QUrl KirigamiPlugin::componentPath(const QString &fileName) const
 {
     QString candidate;
 
     foreach (const QString &style, m_stylesFallbackChain) {
-        candidate = baseUrl().toString() + QStringLiteral("/styles/") + style + QLatin1Char('/') + fileName;
-        if (QFile::exists(QUrl(candidate).path())) {
-            return candidate;
+        candidate = toFilePath(QStringLiteral("/styles/") + style + QLatin1Char('/') + fileName);
+        if (QFile::exists(candidate)) {
+            return toFileUrl(candidate);
         }
     }
 
-    return baseUrl().toString() + QLatin1Char('/') + fileName;
+    return toFileUrl(fileName);
 }
 
 void KirigamiPlugin::registerTypes(const char *uri)
@@ -50,7 +50,7 @@ void KirigamiPlugin::registerTypes(const char *uri)
         m_stylesFallbackChain.prepend(QStringLiteral("Desktop"));
     }*/
 
-    if (!style.isEmpty() && QFile::exists(baseUrl().path() + QStringLiteral("/styles/") + style)) {
+    if (!style.isEmpty() && QFile::exists(toFilePath(QStringLiteral("/styles/") + style))) {
         m_stylesFallbackChain.prepend(style);
     }
     //At this point the fallback chain will be selected->Desktop->Fallback

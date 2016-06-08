@@ -34,9 +34,15 @@ public:
     void registerTypes(const char *uri);
 
 private:
-    QString componentPath(const QString &fileName) const;
+    QUrl componentPath(const QString &fileName) const;
 
     QStringList m_stylesFallbackChain;
+    QString toFilePath(const QString &path) const {
+	return baseUrl().path() + QLatin1Char('/') + path;
+    }
+    QUrl toFileUrl(const QString &filePath) const {
+        return QUrl(baseUrl().toString() + QLatin1Char('/') + filePath);
+    }
 };
 
 #endif
