@@ -19,9 +19,12 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#ifndef KIRIGAMI_STATIC
 #include "kirigamiplugin.h"
+#else
+#include "kirigamistatic.h"
+#endif
 
-#include <QQmlExtensionPlugin>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
