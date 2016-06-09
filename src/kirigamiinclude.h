@@ -40,7 +40,7 @@ public:
     void registerTypes(const char *uri);
 
 private:
-    KirigamiPlugin() {};
+    KirigamiPlugin() {}
     QUrl componentPath(const QString &fileName) const;
 
     QStringList m_stylesFallbackChain;
