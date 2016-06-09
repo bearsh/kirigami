@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KIRIGAMI_STATIC
-#include "kirigamiplugin.h"
+#ifdef KIRIGAMI_BUILD_TYPE_INCLUDE
+#include "kirigamiinclude.h"
 #else
 #include "kirigamistatic.h"
 #endif
@@ -85,6 +85,9 @@ void KirigamiPlugin::registerTypes(const char *uri)
     qmlRegisterType(componentPath(QStringLiteral("SwipeListItem.qml")), uri, 1, 0, "SwipeListItem");
 }
 
-
+#ifdef KIRIGAMI_BUILD_TYPE_INCLUDE
+#include "moc_kirigamiinclude.cpp"
+#else
 #include "moc_kirigamiplugin.cpp"
+#endif
 
