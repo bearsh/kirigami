@@ -22,11 +22,13 @@
 #ifndef KIRIGAMINSTATIC_H
 #define KIRIGAMINSTATIC_H
 
+#include <QObject>
 #include <QString>
 #include <QUrl>
 
-class KirigamiPlugin
+class KirigamiPlugin : public QObject
 {
+    Q_OBJECT
 public:
     static KirigamiPlugin& getInstance() {
         static KirigamiPlugin instance;
