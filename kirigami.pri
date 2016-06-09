@@ -1,6 +1,6 @@
 
 QT          += qml quick gui svg
-HEADERS     += $$PWD/src/kirigamistatic.h
+HEADERS     += $$PWD/src/kirigamiinclude.h
 SOURCES     += $$PWD/src/kirigamiplugin.cpp
 INCLUDEPATH += $$PWD/src
 DEFINES     += KIRIGAMI_STATIC
