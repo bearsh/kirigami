@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KIRIGAMINSTATIC_H
-#define KIRIGAMINSTATIC_H
+#ifndef KIRIGAMIINCLUDE_H
+#define KIRIGAMIINCLUDE_H
 
 #include <QObject>
 #include <QString>
