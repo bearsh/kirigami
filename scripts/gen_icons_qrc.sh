@@ -24,7 +24,7 @@ pushd ${kirigami_dir} > /dev/null
 
 # find strings associated to variable with 'icon' in name and put them into an array
 if [[ -n $(which ag 2>/dev/null) ]]; then
-	possible_icons=($(ag --ignore Icon.qml --file-search-regex "\.qml" --only-matching --nonumbers --noheading --nofilename "icon.*\".+\"" ${SRC_DIR} | egrep -o "*\".+\""))
+	possible_icons=($(ag --ignore Icon.qml --file-search-regex "\.qml" --only-matching --nonumbers --noheading --nofilename --case-sensitive "icon.*\".+\"" ${SRC_DIR} | egrep -o "*\".+\""))
 	# try to find in Icon { ... source: "xyz" ... }
 	possible_icons+=($(ag --ignore Icon.qml --file-search-regex "\.qml" -A 15 "Icon\s*{" ${SRC_DIR} | egrep "source:" | egrep -o "*\".+\""))
 else
