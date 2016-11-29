@@ -13,7 +13,7 @@ DEFINES     += KIRIGAMI_BUILD_TYPE_STATIC
     SOURCES += $$PWD/src/desktopicon.cpp
 }
 
-API_VER=1.0
+API_VER=2.0
 
 RESOURCES += $$PWD/kirigami.qrc
 RESOURCES += $$PWD/kirigami-icons.qrc
